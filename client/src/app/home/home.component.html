@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO</title>
+</head>
+<body>
+
+    <div class="container">
+    <h2>TO-DO APP WITH MEAN</h2>
+
+    <form #taskForm="ngForm">
+        <table class="table">
+            <td>
+                <tr>
+                    <label for="">ID</label>
+                    <input name="id" ngModel id="id" type="text">
+                </tr>
+            </td>
+            <td>
+                <tr>
+                    <label  for="">Name</label>
+                    <input name="name" ngModel id="name" type="text">
+                </tr>   
+            </td>
+        </table>
+        <div class="buttons-grp">
+            <button type="button" class="btn btn-primary" (click)="insertTask(taskForm)" >ADD</button>
+            <button type="button" class="btn btn-warning" (click)="updateTask(taskForm)" >UPDATE</button>
+        </div>
+
+    </form>
+
+    <h4>LISTS</h4>
+    <div class="taskList" *ngFor="let item of tasks" >
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{item.title}}</strong>
+            <div (click)="deleteTask(item._id)" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span class="closeIcon" aria-hidden="true">&times;</span>
+            </div>
+          </div>
+    </div>
+</div>  
+</body>
+</html>
